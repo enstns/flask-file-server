@@ -76,13 +76,20 @@ def list_files():
                         count+=1
                     return  files_json
         else:
-            files=show_files("")
-            files_json = {}
-            count = 0
-            for file in files:
-                files_json[count] = file
-                count+=1
-            return  files_json
+            try:
+                files=show_files("")
+            except Exception as e:
+                    return  {
+                        'ERROR_STATUS' : True,
+                        'REASON' : str(e)
+                    }
+            else:
+                files_json = {}
+                count = 0
+                for file in files:
+                    files_json[count] = file
+                    count+=1
+                return  files_json
     return  {
             'ERROR_STATUS' : True,
             "REASON" : "Bad request",
