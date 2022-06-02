@@ -2,6 +2,7 @@ import os
 from flask import Flask, render_template, request
 from flask import send_from_directory
 
+# for linux '/usr/src/app/'
 MAIN_DIRECTORY = 'C:\\Users\\enestanas\\Desktop\\flask-file-server\\' # dont forget last "\\" 
 DEBUG = True
 
@@ -177,7 +178,8 @@ def update_maindirectory():
         "URL" : "Request URL must be like that : /update/maindirectory",
         "REQUEST_BODY" : {
             "password" : "12345",
-            "new_directory" : "C:\\Users\\admin\\Desktop"
+            "new_directory" : "C:\\Users\\admin\\Desktop" # windows
+            # "new_directory" : "/usr/src/app/files/" # linux
         }
     }
 

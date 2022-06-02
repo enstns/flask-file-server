@@ -1,0 +1,77 @@
+{
+	"info": {
+		"_postman_id": "86e47f93-6bda-46b3-8345-98dfd09367ec",
+		"name": "File-Server-Linux",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "18377655"
+	},
+	"item": [
+		{
+			"name": "Update Main Directory",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"password\" : \"12345\",\r\n    \"new_directory\" : \"/usr/src/app\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:80/update/maindirectory",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"update",
+						"maindirectory"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Open File",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:80/openfile?file_name=app_linux.py",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "80",
+					"path": [
+						"openfile"
+					],
+					"query": [
+						{
+							"key": "file_name",
+							"value": "app_linux.py"
+						},
+						{
+							"key": "folder_path",
+							"value": "/usr/src/app",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Files",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
+		}
+	]
+}
